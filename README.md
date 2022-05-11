@@ -1,6 +1,9 @@
-/*
+# Learning MySQL
+
 This file includes the uses of SELECT Statements with Variants.
 All the codes have been written in reference with SAKILA DATABASE.
+
+A snapshot of topics covered below are:
 * Using select with Static Values
 * ALIAS
 * DISTICT
@@ -14,16 +17,17 @@ All the codes have been written in reference with SAKILA DATABASE.
 * LIMIT
 
 
-*/
-
+```
 show databases;
 use sakila;
--- Static value
+```
+
+#### Static value
 
 SELECT 'MyFirstValue' AS SomeValue;
 SELECT 1+1 AS TWO;
 
--- Current Date and Time
+#### Current Date and Time
 
 SELECT NOW() as "Current Date and Time";
 SELECT CURDATE()  as "Current Date";
@@ -37,7 +41,7 @@ SELECT SQRT(25) as "Square Root";
 SELECT SQRT(26) as "Square Root";
 
 
--- Retrieve all the data from table
+#### Retrieve all the data from table
 show databases;
 USE sakila;
 
@@ -53,7 +57,7 @@ SELECT *
 FROM city;
 
 
--- Retrieve all the data ordered by single column
+#### Retrieve all the data ordered by single column
 
 SELECT *
 FROM sakila.actor;
@@ -76,7 +80,7 @@ ORDER BY last_name DESC;
 
 
 
--- Retrieve selected columns from table
+#### Retrieve selected columns from table
 
 SELECT *
 FROM sakila.actor;
@@ -90,7 +94,7 @@ ORDER BY first_name DESC;
 
 
 
--- Retrieve the data with filter condition
+#### Retrieve the data with filter condition
 
 SELECT *
 FROM sakila.actor;
@@ -108,7 +112,7 @@ FROM sakila.actor
 WHERE first_name = 'Nick';
 
 
--- Retrieve the data with filter condition and ordered by columns
+#### Retrieve the data with filter condition and ordered by columns
 SELECT *
 FROM sakila.actor
 WHERE first_name = 'Nick';
@@ -124,16 +128,14 @@ WHERE actor_id > 100
 ORDER BY first_name, last_name DESC;
 
 
-
--- Retrieve empty result set
+#### Retrieve empty result set
 
 SELECT *
 FROM sakila.actor
 WHERE 1 = 2;
 
 
-
--- Retrieve column names using aliases
+#### Retrieve column names using aliases
 
 SELECT rental_date, inventory_id, return_date
 FROM sakila.rental;
@@ -143,7 +145,8 @@ SELECT 	rental_date AS RentalDate,
 		return_date AS ReturnDate
 FROM sakila.rental;
 
--- Retrieve values based on arithmetic expressions
+
+#### Retrieve values based on arithmetic expressions
 
 SELECT 	replacement_cost-rental_rate,
 		film_id AS FilmID,
@@ -170,7 +173,7 @@ FROM sakila.film;
 
 
 
- -- Retrieve results based on function
+#### Retrieve results based on function
 
 SELECT * 
 FROM sakila.actor;
@@ -180,7 +183,7 @@ FROM sakila.payment;
 
 
 -- ------------------------------------
--- Integer Operations
+## Integer Operations
 -- ------------------------------------
 -- Round() : Round to the nearest Integer
 -- FLOOR() : Returns the highest Integer equal to or lesser than the given number
@@ -195,7 +198,7 @@ FROM sakila.payment;
 SELECT ROUND(4.44,1);
 
 -- ------------------------------------
--- String Operations
+## String Operations
 -- ------------------------------------
 
 -- Concat
@@ -225,7 +228,7 @@ FROM sakila.actor;
 
 
 -- ------------------------------------
--- Date Operations
+## Date Operations
 -- ------------------------------------
 
 -- DATE_FORMAT function
@@ -258,7 +261,7 @@ FROM sakila.rental;
 
 
 -- ------------------------------------
--- DISTINCT Operations
+## DISTINCT Operations
 -- ------------------------------------
 
 SELECT first_name
@@ -338,28 +341,8 @@ WHERE first_name != 'Nick';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- WHERE clause Comparison Operators
+## WHERE clause
+Comparison Operators
 
 -- AND
 SELECT *
@@ -399,7 +382,7 @@ FROM sakila.actor
 WHERE actor_id <> 5;
 
 
--- All together
+#### Combine Conditions
 
 SELECT *
 FROM sakila.actor
@@ -439,18 +422,7 @@ WHERE first_name = 'KENNETH' OR NOT(last_name = 'TEMPLE' AND actor_id < 100);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
--- WHERE clause Comparison Operators
+#### WHERE clause in Comparison Operators
 
 -- IN
 SELECT *
@@ -505,7 +477,7 @@ FROM sakila.actor
 WHERE actor_id NOT BETWEEN 11 AND 19;
 
 
--- LIKE
+## LIKE
 SELECT *
 FROM sakila.actor
 WHERE first_name LIKE 'A%';
@@ -531,7 +503,7 @@ FROM sakila.actor
 WHERE NOT (first_name LIKE 'A%E%' AND first_name LIKE 'A%');
 
 -- -----------------------------------------------------
--- NULL 
+## NULL 
 -- -----------------------------------------------------
 SELECT * 
 FROM sakila.address;
@@ -547,60 +519,7 @@ WHERE address2 IS NOT NULL;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- ORDER BY clause
+## ORDER BY clause
 
 SELECT *
 FROM sakila.address
@@ -628,26 +547,7 @@ ORDER BY 1;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- Limit Keyword
+## Limit Keyword
 
 SELECT *
 FROM sakila.actor
@@ -662,66 +562,6 @@ SELECT *
 FROM sakila.actor
 ORDER BY actor_id
 LIMIT 25, 5;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
