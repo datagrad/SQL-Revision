@@ -986,7 +986,7 @@ delimiter ;
 
 
 ```
-Call update_Salary("Titti",650000);
+Call update_Salary("Kitti",650000);
 ```
 
 
