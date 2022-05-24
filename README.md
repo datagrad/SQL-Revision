@@ -932,8 +932,10 @@ FROM stock;
  ```
 
 
-
+-- ---------------------------------------------------------
 ## Stored Procedure
+-- ---------------------------------------------------------
+
 
 ```
 Use myemployees;
@@ -963,3 +965,33 @@ call Top_Salaried_Employees(3);
 ```
 call Top_Salaried_Employees(1);
 ```
+
+
+--  =================================
+##   Creating Update Stored Procedure - Update tables
+--  =================================
+
+```
+delimiter ..
+create procedure update_Salary ( IN 
+				temp_Name VARCHAR(25), 
+				new_salary int)
+begin 
+update employees
+set salary = new_salary
+where emp_name = temp_Name;
+end..
+delimiter ;
+```
+
+
+```
+Call update_Salary("Titti",650000);
+```
+
+
+
+
+
+
+
