@@ -886,9 +886,80 @@ LIMIT 25, 5;
 
 
 
+-- ---------------------------------------------------------
+## RUNNING TOTAL & MOVING AVERAGE
+-- ---------------------------------------------------------
+
+```
+use myemployees;
+```
+
+```
+Select *, 
+	SUM(price) OVER (ORDER BY Date_of_record) as "Running_Total",
+    AVG(price) OVER (ORDER BY Date_of_record) as "Running_Average"
+From stock; 
+
+Select *, 
+	SUM(price) OVER w as "Running_Total",
+    AVG(price) OVER w as "Running_Average"
+From stock
+Window w as (ORDER BY Date_of_record); 
+```
+
+
+ 
+ ```
+select *,
+avg(Price) 
+	OVER(
+		ORDER BY Date_of_record 
+			ROWS BETWEEN 1 PRECEDING AND CURRENT ROW ) as 2day_moving_average,
+avg(Price) 
+	OVER(
+		ORDER BY Date_of_record 
+			ROWS BETWEEN 2 PRECEDING AND CURRENT ROW ) as 3day_moving_average,
+avg(Price) 
+	OVER(
+		ORDER BY Date_of_record 
+			ROWS BETWEEN 6 PRECEDING AND CURRENT ROW ) as 7day_moving_average,
+avg(Price) 
+	OVER(
+		ORDER BY Date_of_record 
+			ROWS BETWEEN 29 PRECEDING AND CURRENT ROW ) as 30day_moving_average
+            
+FROM stock;
+ ```
 
 
 
+## Stored Procedure
 
+```
+Use myemployees;
+```
 
+###   Creating Stored Procedure
 
+```
+delimiter //
+Create Procedure Top_Salaried_Employees(IN var INT)
+BEGIN
+select EMP_NAME, SALARY from employees
+order by salary desc
+limit var;
+END //
+delimiter ;
+```
+
+###  Using Stored Procedure
+
+#### Find top 3 salaried employees
+```
+call Top_Salaried_Employees(3);
+```
+
+#### Find Highest Salaried Employee
+```
+call Top_Salaried_Employees(1);
+```
