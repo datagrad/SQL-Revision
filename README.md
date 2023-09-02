@@ -995,3 +995,89 @@ Call update_Salary("Kitti",650000);
 
 
 
+
+1. **DATE**: Extracts the date part from a timestamp.
+
+   ```sql
+   SELECT DATE(CURRENT_TIMESTAMP) AS current_date;
+   -- Output: 2023-08-31
+   ```
+
+2. **TIME**: Extracts the time part from a timestamp.
+
+   ```sql
+   SELECT TIME(CURRENT_TIMESTAMP) AS current_time;
+   -- Output: 13:45:00
+   ```
+
+3. **YEAR**: Extracts the year from a timestamp.
+
+   ```sql
+   SELECT YEAR(CURRENT_TIMESTAMP) AS current_year;
+   -- Output: 2023
+   ```
+
+4. **MONTH**: Extracts the month from a timestamp.
+
+   ```sql
+   SELECT MONTH(CURRENT_TIMESTAMP) AS current_month;
+   -- Output: 8
+   ```
+
+5. **DAY**: Extracts the day of the month from a timestamp.
+
+   ```sql
+   SELECT DAY(CURRENT_TIMESTAMP) AS current_day;
+   -- Output: 31
+   ```
+
+6. **HOUR**: Extracts the hour from a timestamp.
+
+   ```sql
+   SELECT HOUR(CURRENT_TIMESTAMP) AS current_hour;
+   -- Output: 13
+   ```
+
+7. **MINUTE**: Extracts the minute from a timestamp.
+
+   ```sql
+   SELECT MINUTE(CURRENT_TIMESTAMP) AS current_minute;
+   -- Output: 45
+   ```
+
+8. **SECOND**: Extracts the second from a timestamp.
+
+   ```sql
+   SELECT SECOND(CURRENT_TIMESTAMP) AS current_second;
+   -- Output: 00
+   ```
+
+9. **DAYOFWEEK**: Returns the day of the week as a number (1 for Sunday, 2 for Monday, and so on).
+
+   ```sql
+   SELECT DAYOFWEEK(CURRENT_TIMESTAMP) AS current_day_of_week;
+   -- Output: 4 (Wednesday)
+   ```
+
+10. **DATE_ADD**: Adds a specified number of days to a date.
+
+    ```sql
+    SELECT DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 7 DAY) AS seven_days_later;
+    -- Output: 2023-09-07 13:45:00
+    ```
+
+11. **DATE_SUB**: Subtracts a specified number of days from a date.
+
+    ```sql
+    SELECT DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY) AS three_days_ago;
+    -- Output: 2023-08-28 13:45:00
+    ```
+
+12. **DATEDIFF**: Calculates the difference between two dates in days.
+
+    ```sql
+    SELECT DATEDIFF('2023-09-05', CURRENT_DATE) AS days_until_september_5;
+    -- Output: 5
+    ```
+
+These are some of the common date-related SQL functions with examples based on `CURRENT_TIMESTAMP`. Depending on your database system, some function names or syntax may vary, but the concepts are generally consistent across different SQL database systems.
