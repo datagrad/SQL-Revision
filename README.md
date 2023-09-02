@@ -1,5 +1,30 @@
 # Learning MySQL
 
+    ```
+    Create table Database_name.CLIENT_DOMAIN_STATS_DATA_BACKUP as
+    Select *
+    From Database_name.CLIENT_DOMAIN_STATS_DATA
+    Where 1=2
+
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This file includes the uses of SELECT Statements with Variants.
 All the codes have been written in reference with SAKILA DATABASE.
 
